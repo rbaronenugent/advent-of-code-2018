@@ -1,8 +1,4 @@
-with open("input.txt") as input_file:
-    lines = input_file.readlines()
-code = [i.split('\n')[0] for i in lines][0]
-
-
+# define functions
 def reduce_polymer(polymer):
     i = 1
     while i < len(polymer):
@@ -15,6 +11,12 @@ def reduce_polymer(polymer):
         else:
             i += 1
     return polymer, len(polymer)
+
+
+# load data
+with open("input.txt") as input_file:
+    lines = input_file.readlines()
+code = [i.split('\n')[0] for i in lines][0]
 
 
 # part 1

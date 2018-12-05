@@ -1,3 +1,4 @@
+# define functions
 def bincount(string):
     d = {}
     for letter in string:
@@ -26,11 +27,13 @@ def character_diff(str1, str2):
     return diff, common_letters
 
 
-# part 1
-with open("input.csv") as input_file:
+# load data
+with open("input.txt") as input_file:
     lines = input_file.readlines()
 lines = [i.split('\n')[0] for i in lines]
 
+
+# part 1
 multiple_dict = {}
 for entry in lines:
     d_ = bincount(entry)

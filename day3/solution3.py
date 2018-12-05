@@ -1,7 +1,9 @@
-with open("input.csv") as input_file:
+# load data
+with open("input.txt") as input_file:
     lines = input_file.readlines()
 lines = [i.split('\n')[0] for i in lines]
 
+# organise data
 coords = []
 sizes = []
 claim_nos = []
@@ -12,6 +14,7 @@ for entry in lines:
     coords.append((int(coord.split(',')[0]), int(coord.split(',')[1])))
     sizes.append((int(size.split('x')[0]), int(size.split('x')[1])))
     claim_nos.append(claim_no)
+
 
 # part 1
 occupied_coords = {}

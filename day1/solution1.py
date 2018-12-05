@@ -1,20 +1,30 @@
-import numpy as np
+# define functions
+def cumsum(list_):
+    sum_ = 0
+    clist = []
+    for i in list_:
+        clist.append(i + sum_)
+        sum_ += i
+    return clist
 
-# party 1
-with open("input.csv") as input_file:
+
+# load data
+with open("input.txt") as input_file:
     lines = input_file.readlines()
-sum_ = sum([int(i.split('\n')[0]) for i in lines])
+lines = [int(i.split('\n')[0]) for i in lines]
+
+# part 1
+sum_ = sum(lines)
 print sum_
 
 
 # part 2
-value_list = [float(i.split('\n')[0]) for i in lines]
-cum_values = np.cumsum(value_list)
+cum_values = cumsum(lines)
 
 starting_value = 0
 c = {0: 1}
 while max(c.values()) <= 1:
-    sum_list = (cum_values + starting_value).astype('int')
+    sum_list = [i + starting_value for i in cum_values]
 
     for entry in sum_list:
         if entry in c:

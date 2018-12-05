@@ -1,12 +1,15 @@
+# load data
 with open("input.csv") as input_file:
     lines = input_file.readlines()
 lines = [i.split('\n')[0] for i in lines]
 
 
-# part 1
+# organise data
 dates = [line.split('[')[1].split(']')[0] for line in lines]
 sorted_dates = [i[0] for i in sorted(zip(lines, dates), key=lambda x: x[1])]
 
+
+# part 1
 guard_sleep_dict = {}
 for entry in sorted_dates:
     if 'Guard' in entry:
